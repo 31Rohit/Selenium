@@ -22,6 +22,12 @@ public class SeleniumTest {
        WebElement firstName= driver.findElement(By.id("RESULT_TextField-1"));
        firstName.sendKeys("FirstName");
        driver.findElement(By.name("RESULT_TextField-2")).sendKeys("LastName");
+       WebElement phoneNumber=driver.findElement(By.id("RESULT_TextField-3"));
+        if (phoneNumber.isDisplayed() && phoneNumber.isEnabled()) {
+
+            phoneNumber.sendKeys("1234567890");}
+        else
+            System.out.println("Phone number field is not visible or enabled.");
        driver.findElement(By.xpath("//input[@value=Submit]")).click();
 
     }
