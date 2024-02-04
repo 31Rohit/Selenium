@@ -17,7 +17,7 @@ public class SeleniumTest {
      driver.findElement(By.name("password")).sendKeys("password");
      if(driver.findElement(By.tagName("button")).isEnabled()){
          System.out.println(("Yes is Displayed"));
-     };
+     }
 //     driver.close();
  }
 
@@ -39,6 +39,10 @@ public class SeleniumTest {
         WebElement emailField = driver.findElement(By.id("emailInput"));
         cityField.sendKeys("SampleCity");
         emailField.sendKeys("sample@email.com");
+
+        WebElement fileInput = driver.findElement(By.id("fileInput"));
+        String filePath = "path/to/your/file.txt";
+        fileInput.sendKeys(filePath);
        driver.findElement(By.xpath("//input[@value=Submit]")).click();
 
     }
