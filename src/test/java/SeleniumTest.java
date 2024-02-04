@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,14 +11,17 @@ public class SeleniumTest {
    static void Setup(){
      System.setProperty("webDriver.chrome.driver","src/test/resources/chromedriver.exe");
      WebDriver driver=new ChromeDriver();
-     driver.get("https://fs2.formsite.com/meherpavan/form2/index.html?1537702596407");
-     JavascriptExecutor js = (JavascriptExecutor)driver;
-     js.executeScript("scrollBy(0,1000)");
+     driver.get("https://saucedemo.com/");
+     driver.findElement(By.id("user-name")).sendKeys("standerd_user");
+     driver.findElement(By.id("password")).sendKeys("secret_sauce");
+     driver.findElement(By.id("login-button")).click();
+     driver.close();
  }
 
     public static void main(String[] args) {
 
         System.setProperty("webDriver.chrome.driver","src/test/resources/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         WebDriver driver=new ChromeDriver();
        WebElement firstName= driver.findElement(By.id("RESULT_TextField-1"));
        firstName.sendKeys("FirstName");
@@ -25,7 +29,7 @@ public class SeleniumTest {
        WebElement phoneNumber=driver.findElement(By.id("RESULT_TextField-3"));
         if (phoneNumber.isDisplayed() && phoneNumber.isEnabled()) {
 
-            phoneNumber.sendKeys("1234567890");}
+            phoneNumber.sendKeys("1234567890")  ;}
         else
             System.out.println("Phone number field is not visible or enabled.");
        driver.findElement(By.xpath("//input[@value=Submit]")).click();
