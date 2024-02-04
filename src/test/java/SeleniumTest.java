@@ -11,11 +11,14 @@ public class SeleniumTest {
    static void Setup(){
      System.setProperty("webDriver.chrome.driver","src/test/resources/chromedriver.exe");
      WebDriver driver=new ChromeDriver();
-     driver.get("https://saucedemo.com/");
-     driver.findElement(By.id("user-name")).sendKeys("standerd_user");
-     driver.findElement(By.id("password")).sendKeys("secret_sauce");
-     driver.findElement(By.id("login-button")).click();
-     driver.close();
+     driver.get("https://abhishekyadav4.github.io/logInForm-react/");
+     driver.findElement(By.name("username")).sendKeys("standerd_user");
+     driver.findElement(By.name("email")).sendKeys("r.grohitgupta1920@gmail.com");
+     driver.findElement(By.name("password")).sendKeys("password");
+     if(driver.findElement(By.tagName("button")).isEnabled()){
+         System.out.println(("Yes is Displayed"));
+     };
+//     driver.close();
  }
 
     public static void main(String[] args) {
@@ -32,6 +35,10 @@ public class SeleniumTest {
             phoneNumber.sendKeys("1234567890")  ;}
         else
             System.out.println("Phone number field is not visible or enabled.");
+        WebElement cityField = driver.findElement(By.id("cityInput"));
+        WebElement emailField = driver.findElement(By.id("emailInput"));
+        cityField.sendKeys("SampleCity");
+        emailField.sendKeys("sample@email.com");
        driver.findElement(By.xpath("//input[@value=Submit]")).click();
 
     }
