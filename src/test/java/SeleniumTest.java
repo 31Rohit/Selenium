@@ -35,10 +35,10 @@ public class SeleniumTest {
             phoneNumber.sendKeys("1234567890")  ;}
         else
             System.out.println("Phone number field is not visible or enabled.");
-        WebElement cityField = driver.findElement(By.id("cityInput"));
-        WebElement emailField = driver.findElement(By.id("emailInput"));
-        cityField.sendKeys("SampleCity");
-        emailField.sendKeys("sample@email.com");
+        WebElement city = driver.findElement(By.id("cityInput"));
+        WebElement email = driver.findElement(By.id("emailInput"));
+        city.sendKeys("SampleCity");
+        email.sendKeys("sample@email.com");
        driver.findElement(By.xpath("//input[@value=Submit]")).click();
 
     }
